@@ -1,1365 +1,775 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Atharva Khamkar - Junior DevOps Engineer | Cloud & Automation Specialist">
-    <meta name="keywords" content="DevOps, Kubernetes, Docker, AWS, CI/CD, Cloud Engineer">
-    <meta name="author" content="Atharva Khamkar">
-    <title>Atharva Khamkar - DevOps Engineer Portfolio</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #0a0e27;
-            color: #fff;
-            overflow-x: hidden;
-        }
-
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #0a0e27;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #00d4ff;
-            border-radius: 5px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #0099cc;
-        }
-
-        /* Navbar */
-        nav {
-            position: fixed;
-            width: 100%;
-            top: 0;
-            background: rgba(10, 14, 39, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
-            z-index: 1000;
-            padding: 0 1rem;
-        }
-
-        .navbar-container {
-            max-width: 1280px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 64px;
-        }
-
-        .logo {
-            font-size: 28px;
-            font-weight: bold;
-            color: #00d4ff;
-            text-decoration: none;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-
-        .logo:hover {
-            transform: scale(1.1);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 32px;
-            align-items: center;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: #b0b9d9;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #00d4ff;
-        }
-
-        .theme-toggle {
-            width: 40px;
-            height: 40px;
-            background: #1a1f3a;
-            border: 1px solid rgba(0, 212, 255, 0.3);
-            border-radius: 8px;
-            color: #fff;
-            cursor: pointer;
-            font-size: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s;
-        }
-
-        .theme-toggle:hover {
-            border-color: #00d4ff;
-        }
-
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: #fff;
-            font-size: 24px;
-            cursor: pointer;
-        }
-
-        /* Hero Section */
-        #home {
-            min-height: 100vh;
-            background: linear-gradient(to bottom, #0a0e27, #0a0e27, #1a1f3a);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding-top: 64px;
-        }
-
-        .hero-content {
-            max-width: 1000px;
-            width: 100%;
-            padding: 2rem;
-            text-align: center;
-        }
-
-        .hero-avatar {
-            width: 128px;
-            height: 128px;
-            margin: 0 auto 32px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #00d4ff, #0099cc);
-            padding: 2px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 20px 60px rgba(0, 212, 255, 0.3);
-            animation: float 3s ease-in-out infinite;
-        }
-
-        .hero-avatar-inner {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            background: #0a0e27;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 60px;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-
-        .hero-title {
-            font-size: clamp(32px, 8vw, 84px);
-            font-weight: 800;
-            margin-bottom: 16px;
-            line-height: 1.2;
-        }
-
-        .hero-subtitle {
-            font-size: clamp(18px, 5vw, 28px);
-            color: #00d4ff;
-            margin-bottom: 32px;
-            min-height: 40px;
-            font-weight: 500;
-        }
-
-        .hero-description {
-            font-size: 18px;
-            color: #b0b9d9;
-            margin-bottom: 32px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.6;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 48px;
-        }
-
-        .btn {
-            padding: 12px 32px;
-            font-size: 16px;
-            font-weight: bold;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #00d4ff, #0099cc);
-            color: #0a0e27;
-        }
-
-        .btn-primary:hover {
-            transform: scale(1.05);
-            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.4);
-        }
-
-        .btn-secondary {
-            border: 2px solid #00d4ff;
-            color: #00d4ff;
-            background: transparent;
-        }
-
-        .btn-secondary:hover {
-            background: #00d4ff;
-            color: #0a0e27;
-        }
-
-        .scroll-indicator {
-            animation: bounce 2s infinite;
-            margin-top: 32px;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(10px); }
-        }
-
-        /* Sections */
-        section {
-            padding: 80px 20px;
-            max-width: 1280px;
-            margin: 0 auto;
-        }
-
-        #about {
-            background-color: #0a0e27;
-        }
-
-        #skills {
-            background-color: #1a1f3a;
-        }
-
-        #projects {
-            background-color: #0a0e27;
-        }
-
-        #workflow {
-            background-color: #1a1f3a;
-        }
-
-        #experience {
-            background-color: #0a0e27;
-        }
-
-        #contact {
-            background-color: #1a1f3a;
-        }
-
-        h2 {
-            font-size: clamp(32px, 6vw, 56px);
-            font-weight: bold;
-            margin-bottom: 32px;
-            text-align: center;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: #b0b9d9;
-            margin-bottom: 48px;
-            font-size: 18px;
-        }
-
-        /* About Section */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 48px;
-            margin-top: 32px;
-        }
-
-        .about-text {
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-            line-height: 1.8;
-            color: #b0b9d9;
-        }
-
-        .about-card {
-            background: #1a1f3a;
-            padding: 24px;
-            border-radius: 8px;
-            border: 1px solid rgba(0, 212, 255, 0.2);
-            transition: all 0.3s;
-            margin-bottom: 16px;
-        }
-
-        .about-card:hover {
-            border-color: #00d4ff;
-            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.1);
-        }
-
-        .about-card h3 {
-            color: #00d4ff;
-            font-size: 18px;
-            margin-bottom: 8px;
-        }
-
-        .about-card p {
-            color: #b0b9d9;
-            font-size: 14px;
-        }
-
-        .about-card ul {
-            list-style: none;
-            color: #b0b9d9;
-            font-size: 14px;
-        }
-
-        .about-card li {
-            padding: 4px 0;
-        }
-
-        /* Skills Section */
-        .skills-filter {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            justify-content: center;
-            margin-bottom: 48px;
-        }
-
-        .filter-btn {
-            padding: 8px 16px;
-            border: 1px solid rgba(0, 212, 255, 0.3);
-            background: #0a0e27;
-            color: #00d4ff;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 14px;
-            transition: all 0.3s;
-        }
-
-        .filter-btn:hover,
-        .filter-btn.active {
-            background: #00d4ff;
-            color: #0a0e27;
-            border-color: #00d4ff;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 16px;
-        }
-
-        .skill-card {
-            background: #0a0e27;
-            padding: 24px;
-            border-radius: 8px;
-            border: 1px solid rgba(0, 212, 255, 0.2);
-            text-align: center;
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-
-        .skill-card:hover {
-            transform: translateY(-8px);
-            border-color: #00d4ff;
-            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
-        }
-
-        .skill-icon {
-            font-size: 40px;
-            margin-bottom: 12px;
-        }
-
-        .skill-name {
-            font-weight: 600;
-            color: #fff;
-            font-size: 14px;
-        }
-
-        .skill-desc {
-            font-size: 12px;
-            color: #b0b9d9;
-            margin-top: 4px;
-        }
-
-        /* Projects Section */
-        .projects-filter {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            justify-content: center;
-            margin-bottom: 48px;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 24px;
-        }
-
-        .project-card {
-            background: #1a1f3a;
-            border: 1px solid rgba(0, 212, 255, 0.2);
-            border-radius: 8px;
-            padding: 24px;
-            transition: all 0.3s;
-            display: flex;
-            flex-direction: column;
-            cursor: pointer;
-        }
-
-        .project-card:hover {
-            border-color: #00d4ff;
-            box-shadow: 0 20px 50px rgba(0, 212, 255, 0.15);
-            transform: translateY(-10px);
-        }
-
-        .project-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 12px;
-        }
-
-        .project-title {
-            font-size: 18px;
-            font-weight: bold;
-            color: #fff;
-        }
-
-        .project-card:hover .project-title {
-            color: #00d4ff;
-        }
-
-        .project-stars {
-            color: #ffd700;
-            font-size: 14px;
-        }
-
-        .project-desc {
-            color: #b0b9d9;
-            font-size: 14px;
-            margin-bottom: 16px;
-            flex-grow: 1;
-            line-height: 1.6;
-        }
-
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 16px;
-        }
-
-        .project-tag {
-            background: rgba(0, 212, 255, 0.2);
-            color: #00d4ff;
-            padding: 4px 12px;
-            border-radius: 4px;
-            font-size: 12px;
-            font-weight: 600;
-        }
-
-        .project-link {
-            color: #00d4ff;
-            font-size: 14px;
-            font-weight: 600;
-            transition: transform 0.3s;
-        }
-
-        .project-card:hover .project-link {
-            transform: translateX(8px);
-        }
-
-        /* Workflow Section */
-        .workflow-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 8px;
-            flex-wrap: wrap;
-            margin-bottom: 48px;
-            overflow-x: auto;
-            padding: 20px 0;
-        }
-
-        .workflow-step {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-width: fit-content;
-        }
-
-        .workflow-box {
-            width: 100px;
-            height: 100px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 40px;
-            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-
-        .workflow-box:hover {
-            transform: scale(1.1) rotate(5deg);
-            box-shadow: 0 20px 50px rgba(0, 212, 255, 0.4);
-        }
-
-        .step1 { background: linear-gradient(135deg, #3b82f6, #06b6d4); }
-        .step2 { background: linear-gradient(135deg, #a855f7, #ec4899); }
-        .step3 { background: linear-gradient(135deg, #f97316, #dc2626); }
-        .step4 { background: linear-gradient(135deg, #1e40af, #0369a1); }
-        .step5 { background: linear-gradient(135deg, #4f46e5, #2563eb); }
-        .step6 { background: linear-gradient(135deg, #16a34a, #059669); }
-
-        .workflow-label {
-            margin-top: 8px;
-            font-size: 12px;
-            font-weight: 600;
-            text-align: center;
-            color: #fff;
-            max-width: 100px;
-        }
-
-        .workflow-arrow {
-            font-size: 24px;
-            color: #00d4ff;
-            display: none;
-        }
-
-        @media (min-width: 768px) {
-            .workflow-arrow {
-                display: block;
-            }
-        }
-
-        .workflow-details {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 24px;
-            margin-top: 48px;
-        }
-
-        .workflow-detail-card {
-            background: #0a0e27;
-            padding: 24px;
-            border-radius: 8px;
-            border: 1px solid rgba(0, 212, 255, 0.2);
-        }
-
-        .workflow-detail-card h3 {
-            color: #00d4ff;
-            margin-bottom: 12px;
-            font-size: 16px;
-        }
-
-        .workflow-detail-card p {
-            color: #b0b9d9;
-            font-size: 14px;
-            line-height: 1.6;
-        }
-
-        /* Experience Section */
-        .experience-container {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .experience-item {
-            display: flex;
-            gap: 24px;
-            margin-bottom: 48px;
-            position: relative;
-        }
-
-        .experience-dot {
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(135deg, #00d4ff, #0099cc);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            flex-shrink: 0;
-            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
-        }
-
-        .experience-line {
-            position: absolute;
-            left: 24px;
-            top: 48px;
-            width: 2px;
-            height: 100%;
-            background: linear-gradient(to bottom, #00d4ff, transparent);
-        }
-
-        .experience-content {
-            background: #1a1f3a;
-            padding: 24px;
-            border-radius: 8px;
-            border: 1px solid rgba(0, 212, 255, 0.2);
-            flex-grow: 1;
-            transition: all 0.3s;
-        }
-
-        .experience-content:hover {
-            border-color: #00d4ff;
-            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.1);
-        }
-
-        .experience-title {
-            font-size: 20px;
-            font-weight: bold;
-            color: #fff;
-            margin-bottom: 4px;
-        }
-
-        .experience-company {
-            color: #00d4ff;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-
-        .experience-period {
-            font-size: 12px;
-            color: #b0b9d9;
-            margin-bottom: 12px;
-        }
-
-        .experience-desc {
-            color: #b0b9d9;
-            font-size: 14px;
-            margin-bottom: 12px;
-            line-height: 1.6;
-        }
-
-        .experience-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .experience-tag {
-            background: rgba(0, 212, 255, 0.1);
-            color: #00d4ff;
-            padding: 4px 12px;
-            border-radius: 4px;
-            font-size: 12px;
-            font-weight: 600;
-        }
-
-        /* Contact Section */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 48px;
-            margin-top: 32px;
-        }
-
-        .contact-links {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .contact-card {
-            display: flex;
-            gap: 16px;
-            padding: 16px;
-            background: #0a0e27;
-            border: 1px solid rgba(0, 212, 255, 0.2);
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-decoration: none;
-        }
-
-        .contact-card:hover {
-            border-color: #00d4ff;
-            transform: translateX(10px);
-        }
-
-        .contact-icon {
-            font-size: 32px;
-            flex-shrink: 0;
-        }
-
-        .contact-info h3 {
-            color: #00d4ff;
-            font-weight: 600;
-            margin-bottom: 4px;
-        }
-
-        .contact-info p {
-            color: #b0b9d9;
-            font-size: 14px;
-        }
-
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .form-input {
-            padding: 12px 16px;
-            background: #0a0e27;
-            border: 1px solid rgba(0, 212, 255, 0.2);
-            border-radius: 6px;
-            color: #fff;
-            font-family: 'Poppins', sans-serif;
-            transition: all 0.3s;
-        }
-
-        .form-input:focus {
-            outline: none;
-            border-color: #00d4ff;
-            box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
-        }
-
-        .form-input::placeholder {
-            color: #666;
-        }
-
-        textarea.form-input {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .form-submit {
-            padding: 12px 32px;
-            background: linear-gradient(135deg, #00d4ff, #0099cc);
-            color: #0a0e27;
-            border: none;
-            border-radius: 6px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .form-submit:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
-        }
-
-        /* Scroll to Top */
-        .scroll-to-top {
-            position: fixed;
-            bottom: 32px;
-            right: 32px;
-            width: 48px;
-            height: 48px;
-            background: #00d4ff;
-            color: #0a0e27;
-            border: none;
-            border-radius: 50%;
-            font-size: 24px;
-            cursor: pointer;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
-            transition: all 0.3s;
-            z-index: 999;
-        }
-
-        .scroll-to-top.show {
-            display: flex;
-        }
-
-        .scroll-to-top:hover {
-            transform: scale(1.1);
-            box-shadow: 0 20px 50px rgba(0, 212, 255, 0.6);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                gap: 16px;
-            }
-
-            .nav-links a {
-                font-size: 12px;
-            }
-
-            .about-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 32px;
-            }
-
-            .skills-grid {
-                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .menu-toggle {
-                display: block;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .nav-links.mobile-open {
-                display: flex;
-                flex-direction: column;
-                position: absolute;
-                top: 64px;
-                left: 0;
-                right: 0;
-                background: rgba(10, 14, 39, 0.98);
-                padding: 16px;
-                border-bottom: 1px solid rgba(0, 212, 255, 0.2);
-            }
-
-            section {
-                padding: 60px 16px;
-            }
-
-            h2 {
-                font-size: 32px;
-            }
-
-            .experience-item {
-                gap: 16px;
-            }
-
-            .scroll-to-top {
-                bottom: 16px;
-                right: 16px;
-                width: 40px;
-                height: 40px;
-                font-size: 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-buttons {
-                flex-direction: column;
-            }
-
-            .btn {
-                width: 100%;
-            }
-
-            .about-card {
-                margin-bottom: 12px;
-            }
-
-            .project-card {
-                padding: 16px;
-            }
-
-            .contact-card {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atharva Khamkar · DevOps & Cloud Engineer</title>
+<meta name="description" content="Atharva Khamkar — DevOps & Cloud Engineer (MSc Cloud Computing, University of Leeds). CI/CD, Kubernetes, AWS, Azure, Terraform, Ansible, observability.">
+<meta property="og:title" content="Atharva Khamkar · DevOps & Cloud Engineer">
+<meta property="og:description" content="CI/CD pipelines, Kubernetes, AWS & Azure. MSc Advanced Computer Science (Cloud Computing), University of Leeds.">
+<meta property="og:url" content="https://atharvakhamkar.github.io/">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230c0f12'/%3E%3Ctext x='5' y='22' font-family='monospace' font-size='16' font-weight='700' fill='%23b8f35a'%3E%3E_%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0c0f12; --bg-2:#11151a; --panel:#141920; --line:#232b35; --line-2:#2f3945;
+  --ink:#e8edf2; --ink-2:#a7b1bd; --ink-3:#6c7785;
+  --accent:#b8f35a; --accent-ink:#0c0f12; --cyan:#5ad1f3; --amber:#f3c15a; --red:#f37a5a;
+  --grid:rgba(184,243,90,.045);
+  --shadow:0 1px 0 rgba(255,255,255,.03) inset, 0 20px 40px -20px rgba(0,0,0,.6);
+  --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --sans:'Space Grotesk',system-ui,-apple-system,Segoe UI,sans-serif;
+}
+:root[data-theme="light"]{
+  --bg:#f3f1ea; --bg-2:#ebe8df; --panel:#fbfaf6; --line:#d9d4c7; --line-2:#c7c0b0;
+  --ink:#15181c; --ink-2:#4a525c; --ink-3:#7a8089;
+  --accent:#3c7a00; --accent-ink:#fbfaf6; --cyan:#00718f; --amber:#9a6200; --red:#b23d1e;
+  --grid:rgba(60,122,0,.06);
+  --shadow:0 20px 40px -28px rgba(40,30,10,.35);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:40px 40px;background-attachment:fixed}
+a{color:inherit}
+::selection{background:var(--accent);color:var(--accent-ink)}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+.mono{font-family:var(--mono)}
+.muted{color:var(--ink-2)}
+.dim{color:var(--ink-3)}
+.ok{color:var(--accent)}
+
+/* ---------- top bar ---------- */
+.bar{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;gap:20px;height:60px}
+.brand{font-family:var(--mono);font-weight:700;font-size:14px;text-decoration:none;white-space:nowrap}
+.brand b{color:var(--accent)}
+.nav{display:flex;gap:4px;margin-left:auto;font-family:var(--mono);font-size:13px}
+.nav a{text-decoration:none;color:var(--ink-2);padding:6px 10px;border-radius:6px;transition:.15s}
+.nav a:hover,.nav a.active{color:var(--ink);background:var(--panel)}
+.nav a.active::before{content:"▸ ";color:var(--accent)}
+.icon-btn{border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:8px;width:36px;height:36px;display:grid;place-items:center;cursor:pointer;flex:none}
+.icon-btn:hover{border-color:var(--accent)}
+.menu-btn{display:none}
+
+/* ---------- hero ---------- */
+.hero{padding:72px 0 56px}
+.hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:center}
+.status{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12.5px;color:var(--ink-2);border:1px solid var(--line);background:var(--panel);padding:6px 12px;border-radius:999px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 0 var(--accent);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--accent) 60%,transparent)}70%{box-shadow:0 0 0 8px transparent}100%{box-shadow:0 0 0 0 transparent}}
+h1{font-size:clamp(44px,7vw,84px);line-height:.95;letter-spacing:-.035em;font-weight:700;margin:22px 0 18px}
+h1 .last{color:transparent;-webkit-text-stroke:1.5px var(--ink)}
+.role{font-family:var(--mono);font-size:15px;color:var(--ink-2);margin-bottom:22px}
+.role .sep{color:var(--accent);padding:0 6px}
+.lede{font-size:18px;color:var(--ink-2);max-width:540px}
+.lede strong{color:var(--ink);font-weight:600}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:13.5px;font-weight:500;text-decoration:none;padding:11px 16px;border-radius:8px;border:1px solid var(--line-2);background:var(--panel);color:var(--ink);transition:.15s;cursor:pointer}
+.btn:hover{border-color:var(--accent);transform:translateY(-1px)}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn svg{width:16px;height:16px}
+
+/* terminal */
+.term{background:#0a0d10;border:1px solid var(--line-2);border-radius:12px;box-shadow:var(--shadow);overflow:hidden;font-family:var(--mono);font-size:13px;color:#d6dde5}
+:root[data-theme="light"] .term{background:#15181c;border-color:#15181c}
+.term-head{display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid #1f262e;background:#0f1317}
+.term-head i{width:11px;height:11px;border-radius:50%;background:#2a323b;display:block}
+.term-head i:nth-child(1){background:#f37a5a}.term-head i:nth-child(2){background:#f3c15a}.term-head i:nth-child(3){background:#b8f35a}
+.term-head span{margin-left:8px;color:#6c7785;font-size:12px}
+.term-body{height:340px;overflow-y:auto;padding:14px 16px 8px;scrollbar-width:thin;scrollbar-color:#2f3945 transparent}
+.term-body .ln{white-space:pre-wrap;word-break:break-word;min-height:1.6em}
+.term-body .p{color:#b8f35a}.term-body .c{color:#5ad1f3}.term-body .y{color:#f3c15a}.term-body .g{color:#6c7785}.term-body .r{color:#f37a5a}
+.term-input{display:flex;align-items:center;gap:8px;padding:10px 16px 14px}
+.term-input .p{color:#b8f35a;white-space:nowrap}
+.term-input input{flex:1;background:transparent;border:0;outline:0;color:#e8edf2;font:inherit;caret-color:#b8f35a;min-width:0}
+.chips{display:flex;flex-wrap:wrap;gap:6px;padding:0 16px 14px}
+.chips button{font:inherit;font-size:11.5px;background:#141920;color:#a7b1bd;border:1px solid #232b35;border-radius:5px;padding:3px 8px;cursor:pointer}
+.chips button:hover{color:#b8f35a;border-color:#b8f35a}
+
+/* metrics */
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:12px;background:var(--panel);margin-top:56px;overflow:hidden}
+.metric{padding:22px 22px 20px;border-right:1px solid var(--line)}
+.metric:last-child{border-right:0}
+.metric .n{font-size:40px;font-weight:700;letter-spacing:-.03em;line-height:1}
+.metric .n small{font-size:20px;color:var(--accent);margin-left:2px}
+.metric .l{font-size:13.5px;color:var(--ink-2);margin-top:8px}
+.metric .s{font-family:var(--mono);font-size:11px;color:var(--ink-3);margin-top:6px}
+
+/* ---------- sections ---------- */
+section{padding:84px 0}
+.sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:36px;flex-wrap:wrap}
+.sec-head .idx{font-family:var(--mono);font-size:13px;color:var(--accent)}
+.sec-head h2{font-size:clamp(30px,4vw,44px);letter-spacing:-.03em;line-height:1.05}
+.sec-head .cmd{font-family:var(--mono);font-size:13px;color:var(--ink-3);margin-left:auto}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:24px}
+.about-text{padding:30px;font-size:17px;color:var(--ink-2)}
+.about-text p+p{margin-top:14px}
+.about-text strong{color:var(--ink);font-weight:600}
+.facts{padding:8px 0;font-family:var(--mono);font-size:13px}
+.facts div{display:grid;grid-template-columns:120px 1fr;gap:12px;padding:12px 24px;border-bottom:1px dashed var(--line)}
+.facts div:last-child{border-bottom:0}
+.facts dt{color:var(--ink-3)}
+.facts dd{color:var(--ink)}
+
+/* experience = pipeline */
+.pipe-flow{display:flex;align-items:center;gap:0;margin-bottom:28px;font-family:var(--mono);font-size:12px;overflow-x:auto;padding-bottom:6px}
+.pipe-flow{scrollbar-width:none}.pipe-flow::-webkit-scrollbar{display:none}
+.stage{display:flex;align-items:center;gap:7px;border:1px solid var(--line);background:var(--panel);padding:8px 10px;border-radius:8px;white-space:nowrap;color:var(--ink-2)}
+.stage .tick{color:var(--accent)}
+.stage.now{border-color:var(--accent);color:var(--ink)}
+.stage.now .tick{color:var(--amber)}
+.conn{width:18px;height:1px;background:var(--line-2);flex:none;position:relative}
+.conn::after{content:"";position:absolute;right:-1px;top:-3px;border:3.5px solid transparent;border-left-color:var(--line-2)}
+.jobs{display:grid;gap:18px}
+.job{overflow:hidden}
+.job-head{display:flex;align-items:center;gap:14px;padding:18px 24px;border-bottom:1px solid var(--line);flex-wrap:wrap;cursor:pointer;user-select:none}
+.badge{font-family:var(--mono);font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:5px;background:color-mix(in srgb,var(--accent) 16%,transparent);color:var(--accent);border:1px solid color-mix(in srgb,var(--accent) 35%,transparent)}
+.badge.run{background:color-mix(in srgb,var(--amber) 16%,transparent);color:var(--amber);border-color:color-mix(in srgb,var(--amber) 35%,transparent)}
+.job-title{font-size:19px;font-weight:600;letter-spacing:-.01em}
+.job-org{color:var(--ink-2);font-size:15px}
+.job-meta{margin-left:auto;font-family:var(--mono);font-size:12.5px;color:var(--ink-3);display:flex;gap:14px;align-items:center}
+.chev{transition:transform .2s;color:var(--ink-3)}
+.job.closed .chev{transform:rotate(-90deg)}
+.job.closed .log{display:none}
+.log{padding:16px 24px 20px;font-family:var(--mono);font-size:13.5px}
+.step{display:grid;grid-template-columns:22px 1fr;gap:8px;padding:7px 0;color:var(--ink-2);line-height:1.55}
+.step::before{content:"✓";color:var(--accent);font-weight:700}
+.step b{color:var(--ink);font-weight:500}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.tag{font-family:var(--mono);font-size:11.5px;color:var(--ink-2);border:1px solid var(--line);background:var(--bg-2);padding:3px 8px;border-radius:5px}
+
+/* dissertation feature */
+.feature{display:grid;grid-template-columns:1.1fr 1fr;overflow:hidden;margin-bottom:28px}
+.feature-body{padding:32px}
+.kicker{font-family:var(--mono);font-size:12px;color:var(--accent);letter-spacing:.04em;text-transform:uppercase}
+.feature h3{font-size:28px;letter-spacing:-.02em;line-height:1.15;margin:10px 0 12px}
+.feature p{color:var(--ink-2)}
+.feature ul{list-style:none;margin-top:16px;display:grid;gap:8px}
+.feature li{color:var(--ink-2);padding-left:20px;position:relative;font-size:15px}
+.feature li::before{content:"›";position:absolute;left:4px;color:var(--accent);font-weight:700}
+.chart{padding:32px;border-left:1px solid var(--line);background:var(--bg-2);display:flex;flex-direction:column;justify-content:center}
+.chart h4{font-family:var(--mono);font-size:12.5px;color:var(--ink-3);font-weight:500;margin-bottom:20px}
+.bars{display:grid;gap:16px}
+.brow{display:grid;grid-template-columns:86px 1fr 56px;align-items:center;gap:12px;font-family:var(--mono);font-size:12.5px}
+.brow .lbl{color:var(--ink-2)}
+.track{height:26px;background:var(--panel);border:1px solid var(--line);border-radius:5px;overflow:hidden;position:relative}
+.fill{height:100%;width:0;background:var(--accent);border-radius:4px;transition:width 1.2s cubic-bezier(.2,.8,.2,1)}
+.brow .val{color:var(--ink);font-weight:700;text-align:right}
+.crossover{margin-top:24px;padding:12px 14px;border:1px dashed var(--amber);border-radius:8px;font-family:var(--mono);font-size:12.5px;color:var(--ink-2)}
+.crossover b{color:var(--amber)}
+
+/* projects */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.filters button{font-family:var(--mono);font-size:12.5px;background:var(--panel);color:var(--ink-2);border:1px solid var(--line);padding:7px 12px;border-radius:7px;cursor:pointer}
+.filters button:hover{color:var(--ink)}
+.filters button.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.filters .count{opacity:.6;margin-left:4px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{display:flex;flex-direction:column;padding:22px;transition:border-color .15s,transform .15s}
+.card:hover{border-color:var(--line-2);transform:translateY(-2px)}
+.card.hide{display:none}
+.card-top{display:flex;align-items:center;justify-content:space-between;font-family:var(--mono);font-size:11.5px;color:var(--ink-3);margin-bottom:14px}
+.card-top .st{display:inline-flex;align-items:center;gap:6px}
+.card-top .st::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent)}
+.card h3{font-size:19px;letter-spacing:-.01em;line-height:1.25;margin-bottom:8px}
+.card p{color:var(--ink-2);font-size:14.5px}
+.card .win{margin-top:12px;font-family:var(--mono);font-size:12.5px;color:var(--ink);background:var(--bg-2);border-left:2px solid var(--accent);padding:8px 10px;border-radius:0 6px 6px 0}
+.card .tags{margin-top:auto;padding-top:16px}
+.card-links{display:flex;gap:14px;margin-top:16px;padding-top:14px;border-top:1px solid var(--line);font-family:var(--mono);font-size:12.5px}
+.card-links a{color:var(--ink-2);text-decoration:none}
+.card-links a:hover{color:var(--accent)}
+.card-links a::after{content:" ↗"}
+.card.has-img{padding:0;overflow:hidden}
+.card.has-img .card-img{aspect-ratio:16/9;background:var(--bg-2);border-bottom:1px solid var(--line);overflow:hidden}
+.card.has-img .card-img img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.card.has-img .card-inner{padding:22px;display:flex;flex-direction:column;flex:1}
+.more{margin-top:28px;padding:22px 24px}
+.more summary{cursor:pointer;font-family:var(--mono);font-size:13.5px;color:var(--ink-2);list-style:none}
+.more summary::-webkit-details-marker{display:none}
+.more summary::before{content:"+ ";color:var(--accent)}
+.more[open] summary::before{content:"− "}
+.repo-list{display:grid;grid-template-columns:repeat(3,1fr);gap:6px 24px;margin-top:18px;font-family:var(--mono);font-size:13px}
+.repo-list a{text-decoration:none;color:var(--ink-2);display:flex;justify-content:space-between;gap:10px;padding:6px 0;border-bottom:1px dashed var(--line)}
+.repo-list a:hover{color:var(--accent)}
+.repo-list a span{color:var(--ink-3);font-size:11.5px;white-space:nowrap}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.skill{padding:22px}
+.skill h3{font-family:var(--mono);font-size:13px;font-weight:500;color:var(--ink-3);margin-bottom:14px}
+.skill h3 b{color:var(--accent);font-weight:700}
+.skill ul{list-style:none;display:flex;flex-wrap:wrap;gap:7px}
+.skill li{font-size:14px;border:1px solid var(--line);background:var(--bg-2);padding:5px 10px;border-radius:6px}
+
+/* education */
+.edu{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px}
+.edu .panel{padding:24px}
+.edu .yr{font-family:var(--mono);font-size:12.5px;color:var(--ink-3)}
+.edu h3{font-size:19px;letter-spacing:-.01em;line-height:1.25;margin:8px 0 6px}
+.edu p{color:var(--ink-2);font-size:14.5px}
+.edu ul{list-style:none;margin-top:10px;display:grid;gap:6px}
+.edu li{color:var(--ink-2);font-size:14.5px;padding-left:18px;position:relative}
+.edu li::before{content:"›";position:absolute;left:3px;color:var(--accent);font-weight:700}
+
+/* contact */
+.contact{padding:48px;display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center}
+.contact h2{font-size:clamp(32px,4.5vw,52px);letter-spacing:-.035em;line-height:1}
+.contact h2 span{color:var(--accent)}
+.contact p{color:var(--ink-2);margin-top:16px;font-size:17px}
+.links{display:grid;gap:10px}
+.links a{display:flex;align-items:center;justify-content:space-between;gap:12px;text-decoration:none;border:1px solid var(--line);background:var(--bg-2);padding:14px 16px;border-radius:9px;font-family:var(--mono);font-size:13.5px;transition:.15s}
+.links a:hover{border-color:var(--accent)}
+.links a .k{color:var(--ink-3);font-size:12px}
+footer{padding:36px 0 48px;font-family:var(--mono);font-size:12.5px;color:var(--ink-3)}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.dot{animation:none}html{scroll-behavior:auto}.fill{transition:none}}
+
+/* ---------- responsive ---------- */
+@media (max-width:980px){
+  .hero-grid,.about-grid,.feature,.contact{grid-template-columns:1fr}
+  .chart{border-left:0;border-top:1px solid var(--line)}
+  .grid,.skills,.edu{grid-template-columns:1fr 1fr}
+  .repo-list{grid-template-columns:1fr 1fr}
+  .metrics{grid-template-columns:1fr 1fr}
+  .metric:nth-child(2){border-right:0}
+  .metric:nth-child(-n+2){border-bottom:1px solid var(--line)}
+}
+@media (max-width:760px){
+  .wrap{padding:0 16px}
+  .menu-btn{display:grid;margin-left:auto}
+  .nav{display:none;position:absolute;top:60px;left:0;right:0;flex-direction:column;background:var(--bg);border-bottom:1px solid var(--line);padding:10px 16px}
+  .nav.open{display:flex}
+  .nav a{padding:10px}
+  .hero{padding:44px 0 32px}
+  section{padding:60px 0}
+  .grid,.skills,.edu,.repo-list{grid-template-columns:1fr}
+  .term{font-size:11.5px}
+  .term-body{height:280px;overflow-x:auto}
+  .term-body .ln{white-space:pre}
+  .sec-head .cmd{display:none}
+  .job-head{padding:16px 18px}.log{padding:14px 18px 18px}
+  .job-meta{margin-left:0;width:100%}
+  .feature-body,.chart{padding:22px}
+  .contact{padding:28px 22px}
+  .facts div{grid-template-columns:96px 1fr;padding:12px 18px}
+  .about-text{padding:22px}
+  .metric .n{font-size:32px}
+  .brow{grid-template-columns:70px 1fr 48px}
+}
+</style>
 </head>
 <body>
-    <!-- Navbar -->
-    <nav>
-        <div class="navbar-container">
-            <a class="logo" onclick="scrollToSection('home')">AK</a>
-            <ul class="nav-links" id="navLinks">
-                <li><a onclick="scrollToSection('home')">Home</a></li>
-                <li><a onclick="scrollToSection('about')">About</a></li>
-                <li><a onclick="scrollToSection('skills')">Skills</a></li>
-                <li><a onclick="scrollToSection('projects')">Projects</a></li>
-                <li><a onclick="scrollToSection('experience')">Experience</a></li>
-                <li><a onclick="scrollToSection('contact')">Contact</a></li>
-            </ul>
-            <button class="menu-toggle" onclick="toggleMobileMenu()">☰</button>
-            <button class="theme-toggle" onclick="toggleTheme()">☀️</button>
-        </div>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="#top">atharva<b>@</b>leeds<span class="dim">:~$</span></a>
+    <nav class="nav" id="nav">
+      <a href="#about">./about</a>
+      <a href="#experience">./experience</a>
+      <a href="#projects">./projects</a>
+      <a href="#skills">./skills</a>
+      <a href="#education">./education</a>
+      <a href="#contact">./contact</a>
     </nav>
+    <button class="icon-btn menu-btn" id="menuBtn" aria-label="Open menu">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <button class="icon-btn" id="themeBtn" aria-label="Toggle light/dark theme">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    </button>
+  </div>
+</header>
 
-    <!-- Hero Section -->
-    <section id="home">
-        <div class="hero-content">
-            <div class="hero-avatar">
-                <div class="hero-avatar-inner">⚙️</div>
-            </div>
-            <h1 class="hero-title">Atharva Khamkar</h1>
-            <div class="hero-subtitle" id="typewriter">Junior DevOps Engineer | Cloud & Automation Specialist</div>
-            <p class="hero-description">
-                Automating cloud infrastructure, crafting CI/CD pipelines, and deploying scalable solutions with Docker, Kubernetes, and AWS. Let's build the future of cloud-native applications.
-            </p>
-            <div class="hero-buttons">
-                <a class="btn btn-primary" onclick="scrollToSection('projects')">View Projects</a>
-                <a class="btn btn-secondary" onclick="scrollToSection('contact')">Get In Touch</a>
-            </div>
-            <div class="scroll-indicator">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00d4ff" stroke-width="2">
-                    <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-                </svg>
-            </div>
+<main id="top">
+<!-- ================= HERO ================= -->
+<div class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="status"><span class="dot"></span>open to graduate &amp; junior roles · UK</span>
+        <h1>Atharva<br><span class="last">Khamkar</span></h1>
+        <div class="role">DevOps<span class="sep">/</span>Cloud<span class="sep">/</span>Platform<span class="sep">/</span>SRE</div>
+        <p class="lede">I build pipelines that take code from <strong>commit to Kubernetes</strong> with no manual steps — tested, scanned and containerised along the way. MSc Cloud Computing, <strong>University of Leeds</strong>.</p>
+        <div class="cta">
+          <a class="btn primary" href="#projects">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>View projects</a>
+          <a class="btn" href="assets/Atharva_Khamkar_DevOps_Resume.pdf" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>Resume.pdf</a>
+          <a class="btn" href="https://github.com/Atharvakhamkar" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>GitHub</a>
         </div>
-    </section>
+      </div>
 
-    <!-- About Section -->
-    <section id="about">
-        <h2>About Me</h2>
-        <div class="about-grid">
-            <div class="about-text">
-                <p>I'm currently pursuing my Master's in Advanced Computer Science (Cloud Computing) at the University of Leeds, UK. With a strong foundation in DevOps methodologies and cloud infrastructure, I'm passionate about designing and optimizing cloud-native solutions.</p>
-                <p>My expertise lies in automating deployments, building robust CI/CD pipelines, and containerizing applications. I've hands-on experience with Docker, Kubernetes, Jenkins, and AWS, enabling me to bridge the gap between development and operations.</p>
-                <p>I believe in the power of automation to solve real-world challenges. Every project I work on is focused on improving system reliability, reducing deployment time, and enhancing infrastructure scalability.</p>
-            </div>
-            <div>
-                <div class="about-card">
-                    <h3>🎓 Education</h3>
-                    <p>Master's - Advanced Computer Science</p>
-                    <p style="font-size: 12px; margin-top: 4px;">(Cloud Computing Specialization)</p>
-                    <p style="font-size: 12px; color: #999; margin-top: 4px;">University of Leeds, UK</p>
-                </div>
-                <div class="about-card">
-                    <h3>⚡ Core Competencies</h3>
-                    <ul>
-                        <li>✓ CI/CD Pipeline Design & Implementation</li>
-                        <li>✓ Container Orchestration (Kubernetes)</li>
-                        <li>✓ Cloud Infrastructure (AWS)</li>
-                        <li>✓ Infrastructure as Code (IaC)</li>
-                    </ul>
-                </div>
-                <div class="about-card">
-                    <h3>🎯 Focus Areas</h3>
-                    <ul>
-                        <li>✓ Automation & Optimization</li>
-                        <li>✓ Monitoring & Observability</li>
-                        <li>✓ Security in DevOps (DevSecOps)</li>
-                        <li>✓ Scalable Infrastructure Design</li>
-                    </ul>
-                </div>
-            </div>
+      <div class="term" aria-label="Interactive terminal">
+        <div class="term-head"><i></i><i></i><i></i><span>atharva@leeds: ~ — bash</span></div>
+        <div class="term-body" id="termBody" aria-live="polite"></div>
+        <form class="term-input" id="termForm" autocomplete="off">
+          <span class="p">$</span>
+          <input id="termIn" type="text" spellcheck="false" aria-label="Type a command, e.g. help" placeholder="type 'help' and press enter">
+        </form>
+        <div class="chips" id="chips">
+          <button data-cmd="whoami">whoami</button>
+          <button data-cmd="kubectl get experience">kubectl get experience</button>
+          <button data-cmd="ls projects/">ls projects/</button>
+          <button data-cmd="cat skills.yaml">cat skills.yaml</button>
+          <button data-cmd="contact">contact</button>
         </div>
-    </section>
+      </div>
+    </div>
 
-    <!-- Skills Section -->
-    <section id="skills">
-        <h2>Technical Expertise</h2>
-        <div class="skills-filter">
-            <button class="filter-btn active" onclick="filterSkills('all')">⭐ All Skills</button>
-            <button class="filter-btn" onclick="filterSkills('cloud')">☁️ Cloud</button>
-            <button class="filter-btn" onclick="filterSkills('containers')">🐳 Containers</button>
-            <button class="filter-btn" onclick="filterSkills('ci-cd')">🔄 CI/CD</button>
-            <button class="filter-btn" onclick="filterSkills('monitoring')">📊 Monitoring</button>
+    <div class="metrics rv">
+      <div class="metric"><div class="n" data-count="60">0<small>%</small></div><div class="l">smaller Docker image</div><div class="s">multi-stage build · Spring Boot</div></div>
+      <div class="metric"><div class="n" data-count="30">0<small>%</small></div><div class="l">faster container start-up</div><div class="s">Kubernetes pod scheduling</div></div>
+      <div class="metric"><div class="n" data-count="80">0<small>%</small></div><div class="l">faster environment setup</div><div class="s">2-tier app · full containerisation</div></div>
+      <div class="metric"><div class="n" data-count="4.28" data-dec="2">0<small>×</small></div><div class="l">speed-up at 12 workers</div><div class="s">MSc dissertation · Azure VMs</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= ABOUT ================= -->
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head rv"><span class="idx">01</span><h2>About</h2><span class="cmd">$ cat README.md</span></div>
+    <div class="about-grid">
+      <div class="panel about-text rv">
+        <p>I'm a DevOps and Cloud Engineer with an <strong>MSc in Advanced Computer Science (Cloud Computing)</strong> from the University of Leeds and two DevOps-focused internships across <strong>AWS, Linux administration and CI/CD automation</strong>.</p>
+        <p>I like replacing hand-run steps with pipelines: Jenkins and GitHub Actions builds with <strong>SonarQube quality gates</strong>, Docker image builds and rolling Kubernetes deployments; Ansible and Bash for provisioning; Prometheus, Grafana and Loki to see what's actually happening.</p>
+        <p>For my dissertation I built a distributed parallel system on <strong>Microsoft Azure</strong> from scratch and benchmarked it to produce data-driven compute right-sizing guidance. Lately I've been exploring <strong>AI agents for operations</strong> — including a self-healing Kubernetes agent.</p>
+      </div>
+      <dl class="panel facts rv">
+        <div><dt>location</dt><dd>Leeds, United Kingdom</dd></div>
+        <div><dt>education</dt><dd>MSc Cloud Computing, Leeds · B.Tech CSE (top 15%)</dd></div>
+        <div><dt>experience</dt><dd>2 DevOps internships · India</dd></div>
+        <div><dt>clouds</dt><dd>AWS · Microsoft Azure</dd></div>
+        <div><dt>daily_driver</dt><dd>Docker · Kubernetes · Jenkins · Terraform</dd></div>
+        <div><dt>seeking</dt><dd class="ok">Graduate / Junior DevOps, Cloud, Platform or SRE</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EXPERIENCE ================= -->
+<section id="experience">
+  <div class="wrap">
+    <div class="sec-head rv"><span class="idx">02</span><h2>Experience</h2><span class="cmd">$ kubectl get experience -o wide</span></div>
+
+    <div class="pipe-flow rv" aria-label="Career pipeline">
+      <span class="stage"><span class="tick">✓</span>B.Tech CSE · 2021</span><span class="conn"></span>
+      <span class="stage"><span class="tick">✓</span>ScaleFull · 2023</span><span class="conn"></span>
+      <span class="stage"><span class="tick">✓</span>Radical Tech · 2024</span><span class="conn"></span>
+      <span class="stage"><span class="tick">✓</span>MSc Leeds · 2025</span><span class="conn"></span>
+      <span class="stage"><span class="tick">✓</span>Dissertation · 2026</span><span class="conn"></span>
+      <span class="stage now"><span class="tick">●</span>next: your team</span>
+    </div>
+
+    <div class="jobs">
+      <article class="panel job rv">
+        <div class="job-head" role="button" tabindex="0" aria-expanded="true">
+          <span class="badge">✓ PASSED</span>
+          <div><div class="job-title">DevOps Intern</div><div class="job-org">Radical Technologies · India</div></div>
+          <div class="job-meta"><span>Dec 2024 – May 2025</span><span>6 mo</span><span class="chev">▾</span></div>
         </div>
-        <div class="skills-grid" id="skillsGrid">
-            <!-- Skills will be generated by JavaScript -->
+        <div class="log">
+          <div class="step"><span>Administered <b>Red Hat Enterprise Linux</b> servers across a 6-month hands-on programme — users, groups, permissions, processes and packages (yum/dnf) — keeping multi-user systems secure and consistently configured.</span></div>
+          <div class="step"><span>Secured remote access by configuring <b>SSH and firewalld</b> to allow only required services, and resolved connectivity faults with standard Linux networking tools.</span></div>
+          <div class="step"><span>Replaced repetitive manual admin with <b>Bash scripts scheduled via cron</b>, so routine tasks ran consistently without operator intervention.</span></div>
+          <div class="step"><span>Deployed a complete <b>LAMP stack on RHEL from a bare OS</b>: Apache virtual hosts, hardened MySQL, minimal firewall ports, validated end-to-end.</span></div>
+          <div class="tags"><span class="tag">RHEL</span><span class="tag">Bash</span><span class="tag">cron</span><span class="tag">SSH</span><span class="tag">firewalld</span><span class="tag">Apache</span><span class="tag">MySQL</span><span class="tag">PHP</span></div>
         </div>
-    </section>
+      </article>
 
-    <!-- Projects Section -->
-    <section id="projects">
-        <h2>Featured Projects</h2>
-        <p class="section-subtitle">Real-world DevOps projects demonstrating hands-on expertise</p>
-        <div class="projects-filter">
-            <button class="filter-btn active" onclick="filterProjects('all')">All Projects</button>
-            <button class="filter-btn" onclick="filterProjects('Docker')">Docker</button>
-            <button class="filter-btn" onclick="filterProjects('Kubernetes')">Kubernetes</button>
-            <button class="filter-btn" onclick="filterProjects('CI')">CI/CD</button>
-            <button class="filter-btn" onclick="filterProjects('AWS')">AWS</button>
+      <article class="panel job rv">
+        <div class="job-head" role="button" tabindex="0" aria-expanded="true">
+          <span class="badge">✓ PASSED</span>
+          <div><div class="job-title">Software Engineer Intern — DevOps &amp; Cloud</div><div class="job-org">ScaleFull Technologies LLP · India</div></div>
+          <div class="job-meta"><span>Dec 2023 – Jan 2024</span><span>2 mo</span><span class="chev">▾</span></div>
         </div>
-        <div class="projects-grid" id="projectsGrid">
-            <!-- Projects will be generated by JavaScript -->
+        <div class="log">
+          <div class="step"><span>Removed manual deployment effort by designing <b>Jenkins CI/CD pipelines with Docker</b> that automated the full build → test → deploy workflow, giving the team faster, repeatable releases.</span></div>
+          <div class="step"><span>Integrated <b>SonarQube static analysis as a quality gate</b>, catching bugs and code smells before code reached deployment.</span></div>
+          <div class="step"><span>Provisioned and managed <b>AWS EC2</b> for application hosting, configuring Security Groups and IAM roles to control network access and permissions.</span></div>
+          <div class="step"><span>Cut LAMP and WordPress environment setup from a manual multi-step process to <b>a single automated run</b> with Ansible playbooks and Bash.</span></div>
+          <div class="step"><span>Administered <b>Ubuntu and CentOS</b> servers (user management, shell scripting, troubleshooting) to keep dev environments stable.</span></div>
+          <div class="tags"><span class="tag">Jenkins</span><span class="tag">Docker</span><span class="tag">SonarQube</span><span class="tag">AWS EC2</span><span class="tag">IAM</span><span class="tag">Ansible</span><span class="tag">Ubuntu</span><span class="tag">CentOS</span></div>
         </div>
-    </section>
+      </article>
+    </div>
+  </div>
+</section>
 
-    <!-- DevOps Workflow Section -->
-    <section id="workflow">
-        <h2>DevOps Workflow</h2>
-        <p class="section-subtitle">Automated pipeline from code to production</p>
-        <div class="workflow-container">
-            <div class="workflow-step">
-                <div class="workflow-box step1">💻</div>
-                <div class="workflow-label">Code Commit</div>
-            </div>
-            <div class="workflow-arrow">→</div>
-            <div class="workflow-step">
-                <div class="workflow-box step2">🔄</div>
-                <div class="workflow-label">GitHub Push</div>
-            </div>
-            <div class="workflow-arrow">→</div>
-            <div class="workflow-step">
-                <div class="workflow-box step3">⚙️</div>
-                <div class="workflow-label">CI/CD Pipeline</div>
-            </div>
-            <div class="workflow-arrow">→</div>
-            <div class="workflow-step">
-                <div class="workflow-box step4">🐳</div>
-                <div class="workflow-label">Docker Build</div>
-            </div>
-            <div class="workflow-arrow">→</div>
-            <div class="workflow-step">
-                <div class="workflow-box step5">☸️</div>
-                <div class="workflow-label">Deploy to K8s</div>
-            </div>
-            <div class="workflow-arrow">→</div>
-            <div class="workflow-step">
-                <div class="workflow-box step6">📊</div>
-                <div class="workflow-label">Monitor & Alert</div>
-            </div>
+<!-- ================= PROJECTS ================= -->
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-head rv"><span class="idx">03</span><h2>Projects</h2><span class="cmd">$ kubectl get deployments -A</span></div>
+
+    <article class="panel feature rv">
+      <div class="feature-body">
+        <span class="kicker">MSc Dissertation · Jul – Sep 2026</span>
+        <h3>Distributed Parallel Genetic Algorithm on Microsoft Azure</h3>
+        <p>Identified a gap in cloud benchmarking for distributed parallel workloads, then designed, built and deployed the whole system on Azure from scratch — no existing codebase or template.</p>
+        <ul>
+          <li>Provisioned Azure VMs and architected the distributed worker system: task decomposition, inter-worker coordination and job scheduling.</li>
+          <li>Microservice GA (GA service, fitness-worker pool, runtime auto-scaler, live dashboard) packaged with Docker Compose.</li>
+          <li>Automated a reproducible benchmark harness measuring runtime and throughput across 1–12 concurrent workers.</li>
+          <li>Turned results into Azure infrastructure sizing guidance for right-sizing parallel compute before deployment.</li>
+        </ul>
+        <div class="tags"><span class="tag">Azure VMs</span><span class="tag">Python</span><span class="tag">Docker Compose</span><span class="tag">Distributed systems</span><span class="tag">Benchmarking</span></div>
+        <div class="card-links" style="border-top:0;padding-top:4px">
+          <a href="https://github.com/Atharvakhamkar/GA-max-sudoku" target="_blank" rel="noopener">GA-max-sudoku</a>
+          <a href="https://github.com/Atharvakhamkar/GA-sudoku-CPU" target="_blank" rel="noopener">GA-sudoku-CPU</a>
         </div>
-        <div class="workflow-details">
-            <div class="workflow-detail-card">
-                <h3>Continuous Integration</h3>
-                <p>Automated testing and building on every code push</p>
-            </div>
-            <div class="workflow-detail-card">
-                <h3>Containerization</h3>
-                <p>Docker images ensuring consistency across environments</p>
-            </div>
-            <div class="workflow-detail-card">
-                <h3>Orchestration</h3>
-                <p>Kubernetes managing deployment, scaling, and updates</p>
-            </div>
-            <div class="workflow-detail-card">
-                <h3>Monitoring</h3>
-                <p>Prometheus & Grafana providing real-time system insights</p>
-            </div>
+      </div>
+      <div class="chart">
+        <h4>// speed-up vs. single worker</h4>
+        <div class="bars" id="bars">
+          <div class="brow"><span class="lbl">1 worker</span><div class="track"><div class="fill" data-w="1"></div></div><span class="val">1.00×</span></div>
+          <div class="brow"><span class="lbl">2 workers</span><div class="track"><div class="fill" data-w="1.79"></div></div><span class="val">1.79×</span></div>
+          <div class="brow"><span class="lbl">12 workers</span><div class="track"><div class="fill" data-w="4.28"></div></div><span class="val">4.28×</span></div>
         </div>
-    </section>
+        <div class="crossover"><b>cost-efficiency crossover ≈ 10 workers</b> — beyond this, added compute no longer justified the spend.</div>
+      </div>
+    </article>
 
-    <!-- Experience Section -->
-    <section id="experience">
-        <h2>Experience</h2>
-        <div class="experience-container">
-            <div class="experience-item">
-                <div class="experience-line"></div>
-                <div class="experience-dot">🎓</div>
-                <div class="experience-content">
-                    <div class="experience-title">Cloud Computing Postgraduate</div>
-                    <div class="experience-company">University of Leeds, UK</div>
-                    <div class="experience-period">2023 - Present</div>
-                    <div class="experience-desc">Specializing in distributed systems, cloud infrastructure, and DevOps methodologies. Exploring advanced topics in cloud security and scalable architecture design.</div>
-                    <div class="experience-tags">
-                        <span class="experience-tag">Distributed Systems</span>
-                        <span class="experience-tag">Cloud Architecture</span>
-                        <span class="experience-tag">DevOps Practices</span>
-                        <span class="experience-tag">Infrastructure Automation</span>
-                    </div>
-                </div>
-            </div>
+    <div class="filters rv" id="filters">
+      <button class="on" data-f="all">all</button>
+      <button data-f="cicd">ci/cd</button>
+      <button data-f="k8s">kubernetes</button>
+      <button data-f="cloud">aws/azure</button>
+      <button data-f="obs">observability</button>
+      <button data-f="ai">ai &amp; data</button>
+    </div>
 
-            <div class="experience-item">
-                <div class="experience-dot">⚙️</div>
-                <div class="experience-content">
-                    <div class="experience-title">DevOps & Cloud Infrastructure Projects</div>
-                    <div class="experience-company">Self-Directed Learning</div>
-                    <div class="experience-period">2022 - Present</div>
-                    <div class="experience-desc">Hands-on experience building CI/CD pipelines, containerizing applications, and deploying to cloud platforms.</div>
-                    <div class="experience-tags">
-                        <span class="experience-tag">Docker & Kubernetes</span>
-                        <span class="experience-tag">Jenkins & GitHub Actions</span>
-                        <span class="experience-tag">AWS Deployment</span>
-                        <span class="experience-tag">Infrastructure as Code</span>
-                    </div>
-                </div>
-            </div>
+    <div class="grid" id="grid">
+      <article class="panel card has-img rv" data-tags="cicd k8s cloud">
+        <div class="card-img"><img src="assets/node-todo-cicd.png" alt="Pipeline diagram: GitHub → Jenkins → SonarQube → Docker → Kubernetes" loading="lazy"></div>
+        <div class="card-inner">
+          <div class="card-top"><span class="st">deployed</span><span>Jenkins · K8s</span></div>
+          <h3>End-to-End CI/CD Pipeline</h3>
+          <p>Replaced a manual release process with a webhook-triggered Jenkins pipeline: build, unit tests, SonarQube SAST, Docker build &amp; push, then a rolling Kubernetes deploy. GitHub Actions PR checks act as a pre-merge gate.</p>
+          <div class="win">0 manual steps from commit → deploy</div>
+          <div class="tags"><span class="tag">Jenkins</span><span class="tag">GitHub Actions</span><span class="tag">SonarQube</span><span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">Terraform</span><span class="tag">Azure Pipelines</span></div>
+          <div class="card-links"><a href="https://github.com/Atharvakhamkar/node-todo-cicd" target="_blank" rel="noopener">source</a></div>
         </div>
-    </section>
+      </article>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2>Let's Connect</h2>
-        <p class="section-subtitle">Open to opportunities in DevOps, Cloud Engineering, and Infrastructure Automation</p>
-        <div class="contact-grid">
-            <div class="contact-links">
-                <a href="mailto:khamkaratharva08@gmail.com" class="contact-card">
-                    <div class="contact-icon">✉️</div>
-                    <div class="contact-info">
-                        <h3>Email</h3>
-                        <p>khamkaratharva08@gmail.com</p>
-                    </div>
-                </a>
-                <a href="https://www.linkedin.com/in/atharva-khamkar/" target="_blank" class="contact-card">
-                    <div class="contact-icon">🔗</div>
-                    <div class="contact-info">
-                        <h3>LinkedIn</h3>
-                        <p>Atharva Khamkar</p>
-                    </div>
-                </a>
-                <a href="https://github.com/Atharvakhamkar" target="_blank" class="contact-card">
-                    <div class="contact-icon">🐙</div>
-                    <div class="contact-info">
-                        <h3>GitHub</h3>
-                        <p>Atharva khamkar</p>
-                    </div>
-                </a>
-            </div>
-            <form class="contact-form" onsubmit="handleFormSubmit(event)">
-                <input type="text" class="form-input" placeholder="Your Name" required id="formName">
-                <input type="email" class="form-input" placeholder="Your Email" required id="formEmail">
-                <textarea class="form-input" placeholder="Your Message" required id="formMessage"></textarea>
-                <button type="submit" class="form-submit" id="formBtn">Send Message</button>
-            </form>
+      <article class="panel card has-img rv" data-tags="cloud k8s cicd">
+        <div class="card-img"><img src="assets/flask-two-tier.png" alt="Flask → MySQL → Docker → Jenkins → EKS architecture" loading="lazy"></div>
+        <div class="card-inner">
+          <div class="card-top"><span class="st">deployed</span><span>AWS · EKS</span></div>
+          <h3>2-Tier Cloud-Native App on AWS</h3>
+          <p>Flask app tier + MySQL tier behind a Load Balancer with Auto Scaling in a custom VPC. Containerised with Docker Compose, then migrated to Kubernetes/EKS with Persistent Volumes so MySQL data survives pod restarts.</p>
+          <div class="win">−80% environment setup time</div>
+          <div class="tags"><span class="tag">AWS VPC</span><span class="tag">ELB</span><span class="tag">Auto Scaling</span><span class="tag">EKS</span><span class="tag">Docker Compose</span><span class="tag">Flask</span><span class="tag">MySQL</span></div>
+          <div class="card-links"><a href="https://github.com/Atharvakhamkar/flask-two-tier-application" target="_blank" rel="noopener">source</a></div>
         </div>
-    </section>
+      </article>
 
-    <!-- Scroll to Top Button -->
-    <button class="scroll-to-top" id="scrollToTopBtn" onclick="scrollToTop()">↑</button>
+      <article class="panel card rv" data-tags="k8s cicd">
+        <div class="card-top"><span class="st">deployed</span><span>Java · K8s</span></div>
+        <h3>Spring Boot Banking App: Containerisation &amp; Kubernetes</h3>
+        <p>A monolithic Spring Boot app's oversized image and slow start-up blocked efficient Kubernetes deployment. Re-engineered it with multi-stage Docker builds, wrote Deployment/Service manifests and automated build &amp; push in Jenkins.</p>
+        <div class="win">−60% image size · −30% start-up time</div>
+        <div class="tags"><span class="tag">Spring Boot</span><span class="tag">Multi-stage Docker</span><span class="tag">Kubernetes</span><span class="tag">Jenkins</span></div>
+      </article>
 
-    <script>
-        // Skills Data
-        const skillsData = {
-            all: [
-                { name: 'Docker', icon: '🐳', category: 'containers' },
-                { name: 'Kubernetes', icon: '☸️', category: 'containers' },
-                { name: 'AWS', icon: '☁️', category: 'cloud' },
-                { name: 'GitHub Actions', icon: '🔄', category: 'ci-cd' },
-                { name: 'Jenkins', icon: '⚙️', category: 'ci-cd' },
-                { name: 'GitLab CI/CD', icon: '📦', category: 'ci-cd' },
-                { name: 'Prometheus', icon: '📊', category: 'monitoring' },
-                { name: 'Grafana', icon: '📈', category: 'monitoring' },
-                { name: 'Git', icon: '🔗', category: 'tools' },
-                { name: 'Linux', icon: '🐧', category: 'tools' },
-                { name: 'Terraform', icon: '🏗️', category: 'iac' },
-                { name: 'Ansible', icon: '🤖', category: 'automation' },
-            ],
-            cloud: [
-                { name: 'AWS EC2', icon: '🖥️', desc: 'Compute instances' },
-                { name: 'AWS S3', icon: '📦', desc: 'Object storage' },
-                { name: 'AWS RDS', icon: '💾', desc: 'Managed databases' },
-                { name: 'AWS VPC', icon: '🌐', desc: 'Networking' },
-            ],
-            containers: [
-                { name: 'Docker', icon: '🐳', desc: 'Containerization' },
-                { name: 'Docker Compose', icon: '🔀', desc: 'Multi-container apps' },
-                { name: 'Kubernetes', icon: '☸️', desc: 'Orchestration' },
-            ],
-            'ci-cd': [
-                { name: 'GitHub Actions', icon: '🔄', desc: 'CI/CD automation' },
-                { name: 'Jenkins', icon: '⚙️', desc: 'Build automation' },
-                { name: 'GitLab CI/CD', icon: '📦', desc: 'Pipeline definition' },
-            ],
-            monitoring: [
-                { name: 'Prometheus', icon: '📊', desc: 'Metrics collection' },
-                { name: 'Grafana', icon: '📈', desc: 'Data visualization' },
-            ],
-        };
+      <article class="panel card rv" data-tags="ai k8s">
+        <div class="card-top"><span class="st">active</span><span>AIOps</span></div>
+        <h3>Agentic AI for DevOps — KubeHealer</h3>
+        <p>A progression of AI agents for real infra tasks: Docker error explainer → container troubleshooter → multi-tool agent with MCP → <b>KubeHealer</b>, a self-healing agent that detects broken pods, diagnoses root cause and fixes them.</p>
+        <div class="tags"><span class="tag">Python</span><span class="tag">Ollama</span><span class="tag">LangChain</span><span class="tag">MCP</span><span class="tag">Temporal</span><span class="tag">Kubernetes</span></div>
+        <div class="card-links"><a href="https://github.com/Atharvakhamkar/Agentic_AI_for_DevOps" target="_blank" rel="noopener">source</a></div>
+      </article>
 
-        // Projects Data
-        const projectsData = [
-            {
-                name: 'Poshan Website',
-                description: 'Full-featured diet and nutrition recommendation platform with consultation booking, packages, diet guides, and admin management.',
-                tags: ['Docker', 'AWS', 'CI/CD'],
-                link: 'https://github.com/Atharvakhamkar',
-                stars: 5,
-            },
-            {
-                name: '2048 Game Deployment',
-                description: 'Deployed 2048 game on AWS using Docker and Jenkins, showcasing end-to-end automation and cloud deployment practices.',
-                tags: ['Docker', 'Jenkins', 'AWS'],
-                link: 'https://github.com/Atharvakhamkar',
-                stars: 3,
-            },
-            {
-                name: 'GitLab CI/CD Pipeline',
-                description: 'Complete CI/CD pipeline for Node.js app using GitLab CI with AWS EC2 integration and custom runner configuration.',
-                tags: ['GitLab-CI', 'AWS', 'Node.js'],
-                link: 'https://github.com/Atharvakhamkar',
-                stars: 4,
-            },
-            {
-                name: 'Ansible Automation',
-                description: 'Server management automation using Ansible playbooks and ad-hoc commands for multi-server deployment scenarios.',
-                tags: ['Ansible', 'Automation', 'Linux'],
-                link: 'https://github.com/Atharvakhamkar',
-                stars: 2,
-            },
-        ];
+      <article class="panel card rv" data-tags="obs">
+        <div class="card-top"><span class="st">deployed</span><span>Monitoring</span></div>
+        <h3>Observability Stack for DevOps</h3>
+        <p>Metrics, logs and traces in one <code class="mono">docker compose up</code>: Prometheus scraping Node Exporter, cAdvisor and an OTEL Collector; Loki + Promtail for container logs; Grafana auto-provisioned against both.</p>
+        <div class="tags"><span class="tag">Prometheus</span><span class="tag">Grafana</span><span class="tag">Loki</span><span class="tag">Promtail</span><span class="tag">OpenTelemetry</span><span class="tag">cAdvisor</span></div>
+        <div class="card-links"><a href="https://github.com/Atharvakhamkar/observability-for-devops" target="_blank" rel="noopener">source</a></div>
+      </article>
 
-        // Current Filter State
-        let currentSkillFilter = 'all';
-        let currentProjectFilter = 'all';
+      <article class="panel card rv" data-tags="k8s cloud">
+        <div class="card-top"><span class="st">benchmarked</span><span>Cloud vs Edge</span></div>
+        <h3>Kubernetes VNF: Cloud vs Edge</h3>
+        <p>Deployed CoreDNS as a Virtual Network Function on a cloud cluster (kind) and an edge cluster (K3s), then load-tested at 100 / 500 / 1000 QPS to compare latency across environments.</p>
+        <div class="win">edge beat cloud at 1000 QPS: 0.216 ms vs 0.342 ms</div>
+        <div class="tags"><span class="tag">Kubernetes</span><span class="tag">kind</span><span class="tag">K3s</span><span class="tag">CoreDNS</span><span class="tag">Load testing</span></div>
+        <div class="card-links"><a href="https://github.com/Atharvakhamkar/Cloud_Computing_-Cloud_vs_Edge-Coursework_2" target="_blank" rel="noopener">source</a></div>
+      </article>
 
-        // Initialize
-        document.addEventListener('DOMContentLoaded', () => {
-            renderSkills('all');
-            renderProjects('all');
-            typeWriter();
-        });
+      <article class="panel card rv" data-tags="cloud cicd k8s">
+        <div class="card-top"><span class="st">deployed</span><span>Hackathon</span></div>
+        <h3>Online Shop — DevOps Hackathon</h3>
+        <p>Took a React e-commerce app to the internet on AWS EC2: multi-stage Dockerfile, Compose with health checks and custom networking, Docker Scout vulnerability scanning, plus Kubernetes manifests with HPA and NGINX ingress.</p>
+        <div class="win">−1 GB image · +50% deployment speed</div>
+        <div class="tags"><span class="tag">Docker</span><span class="tag">Docker Scout</span><span class="tag">AWS EC2</span><span class="tag">CodeBuild</span><span class="tag">K8s HPA</span><span class="tag">Ingress</span></div>
+        <div class="card-links"><a href="https://github.com/Atharvakhamkar/Online-shopping-app" target="_blank" rel="noopener">source</a></div>
+      </article>
 
-        // Typewriter Effect
-        function typeWriter() {
-            const fullText = 'Junior DevOps Engineer | Cloud & Automation Specialist';
-            const element = document.getElementById('typewriter');
-            element.textContent = '';
-            let index = 0;
+      <article class="panel card rv" data-tags="ai">
+        <div class="card-top"><span class="st">shipped</span><span>Leeds Hackathon '26</span></div>
+        <h3>SignalChain.AI — Self-Healing Supply Chain</h3>
+        <p>A predictive ops command centre: risk scoring for shipment delays, a one-click "trigger recovery" digital twin that simulates rerouting, CO₂e tracking and a natural-language assistant over the data.</p>
+        <div class="tags"><span class="tag">FastAPI</span><span class="tag">Pandas</span><span class="tag">Chart.js</span><span class="tag">JavaScript</span></div>
+        <div class="card-links"><a href="https://github.com/Atharvakhamkar/Leeds_Hackathon_2026" target="_blank" rel="noopener">source</a></div>
+      </article>
 
-            const interval = setInterval(() => {
-                if (index < fullText.length) {
-                    element.textContent += fullText.charAt(index);
-                    index++;
-                } else {
-                    clearInterval(interval);
-                    element.innerHTML += '<span class="animate-pulse">|</span>';
-                }
-            }, 50);
-        }
+      <article class="panel card rv" data-tags="ai">
+        <div class="card-top"><span class="st">shipped</span><span>Data &amp; AI Hackathon</span></div>
+        <h3>Prescription Refill Risk — Pharmacy2U Challenge</h3>
+        <p>University of Leeds Data &amp; AI Hackathon (Track 1): modelled prescription refill risk and recommendations on CMS synthetic Part D prescription-event data.</p>
+        <div class="tags"><span class="tag">Python</span><span class="tag">Jupyter</span><span class="tag">Pandas</span><span class="tag">ML</span></div>
+        <div class="card-links"><a href="https://github.com/Atharvakhamkar/Hackathon_DATA_AI-Prescription_Refill_-_Recommendations" target="_blank" rel="noopener">source</a></div>
+      </article>
+    </div>
 
-        // Smooth Scroll
-        function scrollToSection(id) {
-            const element = document.getElementById(id);
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
-                document.getElementById('navLinks').classList.remove('mobile-open');
-            }
-        }
+    <details class="panel more rv">
+      <summary>more repositories on GitHub</summary>
+      <div class="repo-list">
+        <a href="https://github.com/Atharvakhamkar/aws-devops-demo-deploy-" target="_blank" rel="noopener">aws-devops-demo-deploy <span>Jenkins · Sonar</span></a>
+        <a href="https://github.com/Atharvakhamkar/jenkins-server" target="_blank" rel="noopener">jenkins-server <span>React · Django</span></a>
+        <a href="https://github.com/Atharvakhamkar/Ekart" target="_blank" rel="noopener">Ekart <span>Spring Boot · Docker</span></a>
+        <a href="https://github.com/Atharvakhamkar/hospital_management-using-AWS-and-DOCKER-" target="_blank" rel="noopener">hospital-management <span>AWS · Docker</span></a>
+        <a href="https://github.com/Atharvakhamkar/Wisdom_sprouts-AWS-web-application" target="_blank" rel="noopener">wisdom-sprouts <span>AWS</span></a>
+        <a href="https://github.com/Atharvakhamkar/Blockchain_Smart_Contract" target="_blank" rel="noopener">blockchain-smart-contract <span>Solidity</span></a>
+        <a href="https://github.com/Atharvakhamkar/Genetic_Algorithm_microservice_comparison" target="_blank" rel="noopener">ga-microservice-comparison <span>Python</span></a>
+        <a href="https://github.com/Atharvakhamkar/90_Days_OF_DevOps" target="_blank" rel="noopener">90-days-of-devops <span>learning log</span></a>
+        <a href="https://github.com/Atharvakhamkar/Face_recognition" target="_blank" rel="noopener">face-recognition <span>OpenCV</span></a>
+      </div>
+    </details>
+  </div>
+</section>
 
-        // Mobile Menu
-        function toggleMobileMenu() {
-            const navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('mobile-open');
-        }
+<!-- ================= SKILLS ================= -->
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head rv"><span class="idx">04</span><h2>Skills</h2><span class="cmd">$ cat skills.yaml</span></div>
+    <div class="skills">
+      <div class="panel skill rv"><h3><b>cloud:</b></h3><ul><li>AWS EC2</li><li>S3</li><li>RDS</li><li>IAM</li><li>VPC</li><li>Security Groups</li><li>ELB</li><li>Auto Scaling</li><li>EKS</li><li>Azure VMs</li></ul></div>
+      <div class="panel skill rv"><h3><b>ci_cd:</b> &amp; devsecops</h3><ul><li>Jenkins (Pipeline as Code)</li><li>GitHub Actions</li><li>SonarQube (SAST)</li><li>Docker Scout</li><li>Webhooks</li><li>Quality Gates</li></ul></div>
+      <div class="panel skill rv"><h3><b>containers:</b> &amp; orchestration</h3><ul><li>Docker</li><li>Docker Compose</li><li>Multi-stage builds</li><li>Kubernetes</li><li>Persistent Volumes</li><li>HPA</li><li>kind</li><li>K3s</li></ul></div>
+      <div class="panel skill rv"><h3><b>iac:</b> &amp; config</h3><ul><li>Terraform</li><li>Ansible</li><li>YAML</li></ul></div>
+      <div class="panel skill rv"><h3><b>observability:</b></h3><ul><li>Prometheus</li><li>Grafana</li><li>Loki</li><li>OpenTelemetry</li><li>cAdvisor</li></ul></div>
+      <div class="panel skill rv"><h3><b>linux:</b> &amp; networking</h3><ul><li>RHEL</li><li>CentOS</li><li>Ubuntu</li><li>SSH</li><li>firewalld</li><li>cron</li><li>Apache</li><li>MySQL</li></ul></div>
+      <div class="panel skill rv"><h3><b>scripting:</b> &amp; vcs</h3><ul><li>Bash</li><li>Python</li><li>Git</li><li>GitHub</li><li>GitLab</li></ul></div>
+      <div class="panel skill rv"><h3><b>ai_ops:</b></h3><ul><li>LLM agents</li><li>LangChain</li><li>MCP</li><li>Ollama</li><li>Temporal</li></ul></div>
+      <div class="panel skill rv"><h3><b>also:</b></h3><ul><li>FastAPI</li><li>Flask</li><li>Spring Boot</li><li>Node.js</li><li>React</li><li>Pandas</li></ul></div>
+    </div>
+  </div>
+</section>
 
-        // Theme Toggle
-        function toggleTheme() {
-            const btn = event.target;
-            const isDark = btn.textContent === '☀️';
-            btn.textContent = isDark ? '🌙' : '☀️';
-            document.body.style.filter = isDark ? 'invert(0)' : 'invert(1)';
-        }
+<!-- ================= EDUCATION ================= -->
+<section id="education">
+  <div class="wrap">
+    <div class="sec-head rv"><span class="idx">05</span><h2>Education &amp; leadership</h2><span class="cmd">$ git log --education</span></div>
+    <div class="edu">
+      <div class="panel rv">
+        <div class="yr">Sep 2025 – Sep 2026</div>
+        <h3>MSc Advanced Computer Science (Cloud Computing)</h3>
+        <p>University of Leeds, UK</p>
+        <ul><li>Dissertation: distributed parallel GA on Azure</li><li>Cloud vs edge Kubernetes evaluation</li><li>Two university hackathons</li></ul>
+      </div>
+      <div class="panel rv">
+        <div class="yr">Dec 2021 – May 2025</div>
+        <h3>B.Tech Computer Science &amp; Engineering</h3>
+        <p>D.Y. Patil Technical Campus, Kolhapur, India</p>
+        <ul><li>Graduated in the top 15% of the cohort</li></ul>
+      </div>
+      <div class="panel rv">
+        <div class="yr">B.Tech</div>
+        <h3>Leadership &amp; activities</h3>
+        <p>Outside the classroom</p>
+        <ul><li><b>Lead</b>, Linux Club (Year 3)</li><li><b>Team Lead</b>, College Technical Fest</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-        // Skills Functions
-        function filterSkills(category) {
-            currentSkillFilter = category;
-            renderSkills(category);
-            
-            // Update button states
-            document.querySelectorAll('.skills-filter .filter-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            event.target.classList.add('active');
-        }
+<!-- ================= CONTACT ================= -->
+<section id="contact">
+  <div class="wrap">
+    <div class="panel contact rv">
+      <div>
+        <div class="kicker">06 · contact</div>
+        <h2 style="margin-top:12px">Let's ship<br>something <span>reliable.</span></h2>
+        <p>Looking for Graduate or Junior DevOps, Cloud, Platform or Site Reliability Engineer roles in the UK. I reply quickly.</p>
+      </div>
+      <div class="links">
+        <a href="mailto:khamkaratharva08@gmail.com"><span>khamkaratharva08@gmail.com</span><span class="k">email ↗</span></a>
+        <a href="https://linkedin.com/in/atharva-khamkar" target="_blank" rel="noopener"><span>in/atharva-khamkar</span><span class="k">linkedin ↗</span></a>
+        <a href="https://github.com/Atharvakhamkar" target="_blank" rel="noopener"><span>github.com/Atharvakhamkar</span><span class="k">github ↗</span></a>
+        <a href="assets/Atharva_Khamkar_DevOps_Resume.pdf" target="_blank" rel="noopener"><span>Atharva_Khamkar_Resume.pdf</span><span class="k">download ↗</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
 
-        function renderSkills(category) {
-            const grid = document.getElementById('skillsGrid');
-            const skills = category === 'all' ? skillsData.all : skillsData[category];
-            
-            grid.innerHTML = skills.map(skill => `
-                <div class="skill-card">
-                    <div class="skill-icon">${skill.icon}</div>
-                    <div class="skill-name">${skill.name}</div>
-                    ${skill.desc ? `<div class="skill-desc">${skill.desc}</div>` : ''}
-                </div>
-            `).join('');
-        }
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr">2026</span> Atharva Arun Khamkar</span>
+    <span>hand-built · no frameworks · deployed on GitHub Pages</span>
+  </div>
+</footer>
 
-        // Projects Functions
-        function filterProjects(filter) {
-            currentProjectFilter = filter;
-            renderProjects(filter);
-            
-            // Update button states
-            document.querySelectorAll('.projects-filter .filter-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            event.target.classList.add('active');
-        }
+<script>
+(function(){
+  /* ---------- theme ---------- */
+  var root=document.documentElement;
+  function setTheme(t){root.setAttribute('data-theme',t);try{localStorage.setItem('theme',t)}catch(e){}}
+  var saved=null;try{saved=localStorage.getItem('theme')}catch(e){}
+  if(saved){root.setAttribute('data-theme',saved)}
+  else if(window.matchMedia&&matchMedia('(prefers-color-scheme: light)').matches){root.setAttribute('data-theme','light')}
+  document.getElementById('themeBtn').addEventListener('click',function(){setTheme(root.getAttribute('data-theme')==='light'?'dark':'light')});
 
-        function renderProjects(filter) {
-            const grid = document.getElementById('projectsGrid');
-            let filtered = projectsData;
+  /* ---------- mobile nav ---------- */
+  var nav=document.getElementById('nav');
+  document.getElementById('menuBtn').addEventListener('click',function(){nav.classList.toggle('open')});
+  nav.addEventListener('click',function(e){if(e.target.tagName==='A')nav.classList.remove('open')});
 
-            if (filter !== 'all') {
-                filtered = projectsData.filter(project => 
-                    project.tags.some(tag => tag.toLowerCase().includes(filter.toLowerCase()))
-                );
-            }
+  document.getElementById('yr').textContent=new Date().getFullYear();
 
-            grid.innerHTML = filtered.map(project => `
-                <a href="${project.link}" target="_blank" class="project-card">
-                    <div class="project-header">
-                        <div class="project-title">${project.name}</div>
-                        <div class="project-stars">⭐ ${project.stars}</div>
-                    </div>
-                    <p class="project-desc">${project.description}</p>
-                    <div class="project-tags">
-                        ${project.tags.slice(0, 3).map(tag => `<span class="project-tag">${tag}</span>`).join('')}
-                    </div>
-                    <div class="project-link">View Repository →</div>
-                </a>
-            `).join('');
-        }
+  /* ---------- active nav on scroll ---------- */
+  var links=[].slice.call(nav.querySelectorAll('a'));
+  var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))});
+  function onScroll(){
+    var y=window.scrollY+120,cur=-1;
+    secs.forEach(function(s,i){if(s&&s.offsetTop<=y)cur=i});
+    links.forEach(function(a,i){a.classList.toggle('active',i===cur)});
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
 
-        // Form Handling
-        function handleFormSubmit(e) {
-            e.preventDefault();
-            const btn = document.getElementById('formBtn');
-            const originalText = btn.textContent;
-            
-            btn.textContent = '✓ Message Sent!';
-            btn.style.background = 'linear-gradient(135deg, #16a34a, #059669)';
-            
-            setTimeout(() => {
-                btn.textContent = originalText;
-                btn.style.background = '';
-                document.getElementById('formName').value = '';
-                document.getElementById('formEmail').value = '';
-                document.getElementById('formMessage').value = '';
-            }, 3000);
-        }
+  /* ---------- reveal + counters + bars ---------- */
+  function countUp(el){
+    var target=parseFloat(el.dataset.count),dec=parseInt(el.dataset.dec||'0',10),suffix=el.querySelector('small').outerHTML,t0=null;
+    function f(ts){if(!t0)t0=ts;var p=Math.min((ts-t0)/1100,1),e=1-Math.pow(1-p,3);el.innerHTML=(target*e).toFixed(dec)+suffix;if(p<1)requestAnimationFrame(f)}
+    requestAnimationFrame(f);
+  }
+  function fillBars(){
+    document.querySelectorAll('.fill').forEach(function(b){b.style.width=(parseFloat(b.dataset.w)/4.28*100)+'%'});
+  }
+  var reduced=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if('IntersectionObserver' in window&&!reduced){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(!e.isIntersecting)return;
+      e.target.classList.add('in');
+      if(e.target.classList.contains('metrics'))e.target.querySelectorAll('[data-count]').forEach(countUp);
+      if(e.target.classList.contains('feature'))fillBars();
+      io.unobserve(e.target);
+    })},{threshold:.12});
+    document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+  }else{
+    document.querySelectorAll('.rv').forEach(function(el){el.classList.add('in')});
+    document.querySelectorAll('[data-count]').forEach(function(el){el.innerHTML=parseFloat(el.dataset.count).toFixed(parseInt(el.dataset.dec||'0',10))+el.querySelector('small').outerHTML});
+    fillBars();
+  }
 
-        // Scroll to Top
-        window.addEventListener('scroll', () => {
-            const btn = document.getElementById('scrollToTopBtn');
-            if (window.pageYOffset > 300) {
-                btn.classList.add('show');
-            } else {
-                btn.classList.remove('show');
-            }
-        });
+  /* ---------- collapsible jobs ---------- */
+  document.querySelectorAll('.job-head').forEach(function(h){
+    function t(){var j=h.parentElement;j.classList.toggle('closed');h.setAttribute('aria-expanded',!j.classList.contains('closed'))}
+    h.addEventListener('click',t);
+    h.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();t()}});
+  });
 
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-    </script>
+  /* ---------- project filters ---------- */
+  var fbtns=[].slice.call(document.querySelectorAll('#filters button'));
+  var cards=[].slice.call(document.querySelectorAll('#grid .card'));
+  fbtns.forEach(function(b){
+    var f=b.dataset.f,n=f==='all'?cards.length:cards.filter(function(c){return c.dataset.tags.split(' ').indexOf(f)>-1}).length;
+    b.insertAdjacentHTML('beforeend','<span class="count">'+n+'</span>');
+    b.addEventListener('click',function(){
+      fbtns.forEach(function(x){x.classList.toggle('on',x===b)});
+      cards.forEach(function(c){c.classList.toggle('hide',f!=='all'&&c.dataset.tags.split(' ').indexOf(f)<0);c.classList.add('in')});
+    });
+  });
+
+  /* ---------- terminal ---------- */
+  var body=document.getElementById('termBody'),form=document.getElementById('termForm'),input=document.getElementById('termIn');
+  var hist=[],hi=0;
+  function esc(s){return s.replace(/[&<>]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;'}[c]})}
+  function out(html){var d=document.createElement('div');d.className='ln';d.innerHTML=html;body.appendChild(d);body.scrollTop=body.scrollHeight}
+  function go(id){var el=document.getElementById(id);if(el)setTimeout(function(){el.scrollIntoView({behavior:reduced?'auto':'smooth'})},350)}
+  var C={
+    help:function(){return[
+      '<span class="y">available commands</span>',
+      '  <span class="c">whoami</span>                    short intro',
+      '  <span class="c">kubectl get experience</span>    work history',
+      '  <span class="c">ls projects/</span>              featured projects',
+      '  <span class="c">cat skills.yaml</span>           tech stack',
+      '  <span class="c">education</span>                 degrees',
+      '  <span class="c">contact</span>                   get in touch',
+      '  <span class="c">resume</span>                    open the PDF',
+      '  <span class="c">clear</span>                     clear screen']},
+    whoami:function(){return['<span class="p">Atharva Arun Khamkar</span> — DevOps &amp; Cloud Engineer','MSc Advanced CS (Cloud Computing), University of Leeds','based in Leeds, UK · open to graduate/junior DevOps, Cloud, Platform &amp; SRE roles']},
+    'kubectl get experience':function(){go('experience');return[
+      '<span class="g">NAME                     ROLE                       STATUS     AGE</span>',
+      'radical-technologies     DevOps Intern              <span class="p">Completed</span>  6mo',
+      'scalefull-technologies   SWE Intern (DevOps/Cloud)  <span class="p">Completed</span>  2mo',
+      'your-company             DevOps / Cloud / SRE       <span class="y">Pending</span>    —']},
+    'ls projects/':function(){go('projects');return[
+      '<span class="c">azure-distributed-ga/</span>   <span class="c">cicd-pipeline/</span>      <span class="c">flask-2tier-aws/</span>',
+      '<span class="c">springboot-k8s/</span>         <span class="c">kubehealer-ai/</span>      <span class="c">observability-stack/</span>',
+      '<span class="c">k8s-cloud-vs-edge/</span>      <span class="c">online-shop/</span>        <span class="c">signalchain-ai/</span>']},
+    'cat skills.yaml':function(){go('skills');return[
+      '<span class="y">cloud:</span>       [aws, azure, eks]',
+      '<span class="y">ci_cd:</span>       [jenkins, github-actions, sonarqube]',
+      '<span class="y">containers:</span>  [docker, compose, kubernetes, k3s]',
+      '<span class="y">iac:</span>         [terraform, ansible]',
+      '<span class="y">observe:</span>     [prometheus, grafana, loki, otel]',
+      '<span class="y">linux:</span>       [rhel, ubuntu, centos, bash]']},
+    education:function(){go('education');return['MSc Advanced CS (Cloud Computing) · University of Leeds · 2025–26','B.Tech CSE · D.Y. Patil Technical Campus · 2021–25 · top 15%']},
+    contact:function(){go('contact');return['email     <a class="c" href="mailto:khamkaratharva08@gmail.com">khamkaratharva08@gmail.com</a>','linkedin  <a class="c" href="https://linkedin.com/in/atharva-khamkar" target="_blank" rel="noopener">in/atharva-khamkar</a>','github    <a class="c" href="https://github.com/Atharvakhamkar" target="_blank" rel="noopener">Atharvakhamkar</a>']},
+    resume:function(){window.open('assets/Atharva_Khamkar_DevOps_Resume.pdf','_blank','noopener');return['opening <span class="c">Atharva_Khamkar_DevOps_Resume.pdf</span> …']},
+    'sudo hire atharva':function(){go('contact');return['<span class="p">[sudo]</span> permission granted. scrolling to contact…']},
+    ls:function(){return['<span class="c">projects/</span>  README.md  skills.yaml  resume.pdf']},
+    'cat readme.md':function(){go('about');return C.whoami()},
+    pwd:function(){return['/home/atharva']},
+    date:function(){return[new Date().toString()]}
+  };
+  var alias={'kubectl get exp':'kubectl get experience',experience:'kubectl get experience',projects:'ls projects/','ls projects':'ls projects/',skills:'cat skills.yaml',about:'whoami','sudo hire-me':'sudo hire atharva','hire':'sudo hire atharva'};
+  function run(raw){
+    var cmd=raw.trim().replace(/\s+/g,' '),k=cmd.toLowerCase();
+    out('<span class="p">$</span> '+esc(cmd));
+    if(!k)return;
+    hist.push(cmd);hi=hist.length;
+    if(k==='clear'){body.innerHTML='';return}
+    k=alias[k]||k;
+    if(C[k]){C[k]().forEach(out)}
+    else{out('<span class="r">command not found:</span> '+esc(cmd.split(' ')[0])+' <span class="g">— try</span> <span class="c">help</span>')}
+    out('');
+  }
+  form.addEventListener('submit',function(e){e.preventDefault();run(input.value);input.value=''});
+  input.addEventListener('keydown',function(e){
+    if(e.key==='ArrowUp'&&hi>0){hi--;input.value=hist[hi];e.preventDefault()}
+    else if(e.key==='ArrowDown'){hi=Math.min(hist.length,hi+1);input.value=hist[hi]||'';e.preventDefault()}
+  });
+  document.getElementById('chips').addEventListener('click',function(e){var c=e.target.dataset&&e.target.dataset.cmd;if(c)run(c)});
+
+  /* boot sequence */
+  var boot=[
+    '<span class="g">Last login: '+new Date().toDateString()+' on ttys001</span>',
+    '<span class="p">$</span> whoami'
+  ].concat(C.whoami(),['','<span class="p">$</span> kubectl get pods -n portfolio',
+    '<span class="g">NAME                      READY   STATUS    RESTARTS</span>',
+    'ci-cd-pipeline-7f9c       1/1     <span class="p">Running</span>   0',
+    'k8s-workloads-5d2a        1/1     <span class="p">Running</span>   0',
+    'aws-azure-infra-3b8e      1/1     <span class="p">Running</span>   0',
+    'observability-9a1f        1/1     <span class="p">Running</span>   0','',
+    '<span class="g"># interactive — type</span> <span class="c">help</span> <span class="g">or tap a command below</span>','']);
+  if(reduced){boot.forEach(out)}
+  else{var i=0;(function n(){if(i<boot.length){out(boot[i++]);setTimeout(n,i<3?260:90)}})()}
+})();
+</script>
 </body>
 </html>
