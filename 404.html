@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 · CrashLoopBackOff</title>
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <script>
+    (function () { var t = null; try { t = localStorage.getItem('theme'); } catch (e) {} document.documentElement.setAttribute('data-theme', t || 'dark'); })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <style>
+    body { min-height: 100vh; min-height: 100svh; display: grid; place-items: center; padding: 24px 16px; }
+    .box { width: min(640px, 100%); }
+    .code { font-size: clamp(96px, 22vw, 180px); font-weight: 700; letter-spacing: -.06em; line-height: .85; }
+    .code span { color: var(--red); animation: flick 2.4s steps(1) infinite; }
+    @keyframes flick { 0%, 100% { opacity: 1; } 42% { opacity: .2; } 44% { opacity: 1; } 46% { opacity: .3; } 48% { opacity: 1; } }
+    pre { margin: 28px 0; padding: 18px 20px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--panel); font-family: var(--mono); font-size: 13px; color: var(--ink-2); overflow-x: auto; }
+    pre .r { color: var(--red); } pre .g { color: var(--ink-3); } pre .p { color: var(--accent); }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="code">4<span>0</span>4</div>
+    <pre><span class="g">$ kubectl get pod this-page</span>
+<span class="g">NAME        READY   STATUS             RESTARTS</span>
+this-page   0/1     <span class="r">CrashLoopBackOff</span>   404
+
+<span class="g">$ kubectl describe pod this-page | tail -1</span>
+  Warning  NotFound  the route you requested isn't deployed
+
+<span class="g">$ kubectl rollout undo</span>
+<span class="p">✓</span> rolling back to a known-good page…</pre>
+    <a class="btn primary" href="/">← back to the portfolio</a>
+  </div>
+</body>
+</html>
